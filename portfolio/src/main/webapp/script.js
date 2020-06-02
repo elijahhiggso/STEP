@@ -26,3 +26,9 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+// testing function for step 2
+async function getMessage(){
+    const response = await fetch('/data');
+    const greeting = await response.text();
+    document.getElementById('greeting-container').innerText = greeting;
+}
