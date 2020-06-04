@@ -26,9 +26,9 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
-// Fetch Greeting from DataServlet.java
-async function getMessage(){
+// Fetch Comments from DataServlet.java
+async function getComment(){
     const response = await fetch('/data');
     const greeting = await response.text();
-    document.getElementById('greeting-container').innerText = greeting;
+    document.getElementById('commentbox').innerText = greeting;
 }
