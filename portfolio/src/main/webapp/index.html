@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body style="background-color:DodgerBlue; color:White;">
+  <body onload="getComment()"style="background-color:DodgerBlue; color:White;">
     <div id="content">
       
       <h1><center>Elijah Higgs</center> </h1>
@@ -33,11 +33,33 @@
       
       <a href='/images/resume.pdf'><button>My Resume</button></a>
 
-    <div id="content">
+    <!--<div id="content">
       
+<<<<<<< HEAD
       <p>Click to see comments:</p>
       <button onclick="getComment()">Comments</button>
       <div id="commentbox"></div>  
+=======
+<<<<<<< Updated upstream
+      <p>Click here to see a greeting:</p>
+      <button onclick="getMessage()">Greeting!</button>
+      <div id="greeting-container"></div>  
+      
+=======
+      <p>Click to see comments:</p>
+      <button onclick="getComment()">Comments</button>
+      
+    <div id="commentbox"></div>-->
+    <div id="content">
+    <form action="/data" method="POST">
+        <p>Enter comments:</p>
+        <textarea name="text-input">Enter a comment</textarea>
+        <button> Comments</button>
+    </form>
+    
+     
+    <div id="commentbox"></div>        
+
 
 
       <p><center><a href="https://www.linkedin.com/in/elijahhiggs/">

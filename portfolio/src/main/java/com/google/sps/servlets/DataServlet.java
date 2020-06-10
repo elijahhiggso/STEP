@@ -13,7 +13,12 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import com.google.appengine.api.datastore.DatastoreService;
+import com.google.appengine.api.datastore.DatastoreServiceFactory;
+import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,34 +26,57 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import com.google.gson.Gson;
+import java.util.Arrays;
 
 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
-public class DataServlet extends HttpServlet {
-
-    ArrayList<String> jsonData = new ArrayList<String>();
-
+public class DataServlet extends HttpServlet {            
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    jsonData.add("Elijah");
-    jsonData.add("Isaiah");
-    jsonData.add("Noah");
 
-    String json = convertToJsonUsingGson(jsonData);
-    response.setContentType("application/json");
-    response.getWriter().println(json);
+    ArrayList<String> jsonData = new ArrayList<String>();
+    Query query = new Query("Comment");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
     
+    for (Entity entity : results.asIterable()) {
+        String title = (String) entity.getProperty("text-input");
+        jsonData.add(title);
+    }
+    String json = convertToJsonUsingGson(jsonData);
+    response.setContentType("text/html");
+    for (String comment : jsonData){
+    response.getWriter().println(comment);
+    }
     
   }
-
   private String convertToJsonUsingGson(ArrayList<String> jsonData) {
     Gson gson = new Gson();
     String json = gson.toJson(jsonData);
     return json;
   }
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        // Get the input from the form.
+        String text = getParameter(request, "text-input", "");
+        //jsonData.add(text);
+
+        // Entity
+        Entity taskEntity = new Entity("Comment");
+        taskEntity.setProperty("text-input", text);
+        
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+          
+        datastore.put(taskEntity);
+        response.sendRedirect("/index.html");  
+  }
+    private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
 }
-
-
-
