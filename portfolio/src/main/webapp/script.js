@@ -33,6 +33,10 @@ async function getComment(){
     document.getElementById('commentbox').innerText = greeting;
 }
 
+function createMap() {
+  const map = new google.maps.Map(
+  document.getElementById('map'),{center: {lat: 36.12334442, lng: -86.83769989}, zoom: 13});
+}
 
 
 
