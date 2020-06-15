@@ -1,76 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Elijah Higgs' Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-  </head>
-  <body onload="getComment()"style="background-color:DodgerBlue; color:White;">
-    <div id="content">
-      
-      <h1><center>Elijah Higgs</center> </h1>
-      <p><center><img src="/images/IMG-2422.JPG" alt="My Headshot" style="width:200px;height:232px;"></center></p>
-      <br>
-      <h2>Who am I?</h2>
-      <p>I'm a first year CS major from Nashville, TN at Hampton University<p>
-      <img src="/images/hampton.JPG" alt="Hampton Photo" style="width:300px;height350px";>
-      
-      <h3>Fun Facts about me:</h3>
-      <p>- I'm the middle of three brothers<p>
-      <p>- I celebrate Kwanzaa<p>
-      <p>- I play the Violin<p>
-      <p>- I was on a high school rowing team<p>
-      <p>- I love music (Check out my playlist!)<p>
-      <p>- I like playing video games<p>    
 
-      <img src="/images/kwanzaa.jpg" alt="Kwanzaa Family Photo" style="width:300px;height350px";>
-      
+<head>
+	<meta charset="UTF-8">
+	<title>Elijah Higgs' Portfolio</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
+</head>
 
-      
-      
-      <p>Click here to see my resume:</p>
-      
-      <a href='/images/resume.pdf'><button>My Resume</button></a>
+<body onload="createMap()" onload="getComment()" style="background-color:DodgerBlue; color:White;">
+	<div id="content">
+		<h1>
+			<center>Elijah Higgs</center>
+		</h1>
+		<p>
+			<center><img src="/images/IMG-2422.JPG" alt="My Headshot" style="width:200px;height:232px;"></center>
+		</p>
+		<br>
+		<h2>Who am I?</h2>
+		<p>I'm a first year CS major from Nashville, TN at Hampton University<p>
+				<img src="/images/hampton.JPG" alt="Hampton Photo" style="width:300px;height350px";>
+				<h3>Fun Facts about me:</h3>
+				<p>- I'm the middle of three brothers<p>
+						<p>- I celebrate Kwanzaa<p>
+								<p>- I play the Violin<p>
+										<p>- I was on a high school rowing team<p>
+												<p>- I love music (Check out my playlist!)<p>
+														<p>- I like playing video games<p>
+																<img src="/images/kwanzaa.jpg" alt="Kwanzaa Family Photo" style="width:300px;height350px";>
+																<script
+																	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBri8kdCsTY5SfcPIU1bx-j2UN_jUVc0Yc">
+																</script>
+																<h3>This is where I'm from:</h3>
+																<div id="map"></div>
+																<p>Click here to see my resume:</p>
+																<a
+																	href='/images/resume.pdf'><button>My Resume</button></a>
+																<div id="content">
+																	<form action="/data" method="POST">
+																		<p>Enter comments:</p>
+																		<textarea name="text-input">Enter a comment</textarea>
+																		<button> Comments</button>
+																		</select>
+																	</form>
+																	<div id="commentbox"></div>
+																	<p>
+																		<center><a
+																				href="https://www.linkedin.com/in/elijahhiggs/">
+																				<img src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo.png" alt="My LinkedIn" width="50" height=50></a>
+																				<a
+																					href="https://github.com/elijahhiggso">
+																					<img src="https://pngimg.com/uploads/github/github_PNG80.png" alt="My GitHub" width="50" height="50"></a>
+																					<a
+																						href="https://open.spotify.com/playlist/5YJHy9aGCcr6z1VSd8pRTG?si=RJXTgNhVSuK2s8vZ4RxH9g">
+																						<img src="/images/spotify.png" alt="My Spotify" width="50" height="50"></a>
+																		</center>
+																	</p>
+																</div>
+</body>
 
-    <!--<div id="content">
-      
-<<<<<<< HEAD
-      <p>Click to see comments:</p>
-      <button onclick="getComment()">Comments</button>
-      <div id="commentbox"></div>  
-=======
-<<<<<<< Updated upstream
-      <p>Click here to see a greeting:</p>
-      <button onclick="getMessage()">Greeting!</button>
-      <div id="greeting-container"></div>  
-      
-=======
-      <p>Click to see comments:</p>
-      <button onclick="getComment()">Comments</button>
-      
-    <div id="commentbox"></div>-->
-    <div id="content">
-    <form action="/data" method="POST">
-        <p>Enter comments:</p>
-        <textarea name="text-input">Enter a comment</textarea>
-        <button> Comments</button>
-    </form>
-    
-     
-    <div id="commentbox"></div>        
-
-
-
-      <p><center><a href="https://www.linkedin.com/in/elijahhiggs/">
-      <img src="https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo.png" alt="My LinkedIn" width="50" height=50></a>
-      
-      <a href="https://github.com/elijahhiggso">
-      <img src="https://pngimg.com/uploads/github/github_PNG80.png" alt="My GitHub" width="50" height="50"></a>
-
-      <a href="https://open.spotify.com/playlist/5YJHy9aGCcr6z1VSd8pRTG?si=RJXTgNhVSuK2s8vZ4RxH9g">
-      <img src="/images/spotify.png" alt="My Spotify" width="50" height="50"></a></center></p>
-
-    </div>
-  </body>
 </html>
